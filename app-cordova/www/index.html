@@ -5,20 +5,20 @@
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
-        $("#insert").click(function() {
+        $("insert").click(function() {
             var title = $("#title").val();
             var duration = $("#duration").val();
             var price = $("#price").val();
             var dataString = "title=" + title + "&duration=" + duration + "&price=" + price + "&insert=";
             if ($.trim(title).length > 0 & $.trim(duration).length > 0 & $.trim(price).length > 0) {
                 $.ajax({
-                    type: "POST",
+                    type: 'POST',
                     url: "https://caudate-navy.000webhostapp.com/app-cordova/www/insert.php",
-                    data: dataString,
+                    barang: dataString,
                     crossDomain: true,
                     cache: false,
                     beforeSend: function() {
-                        $("#insert").val('Connecting...');
+                        $("insert").val('Connecting...');
                     },
                     success: function(data) {
                         if (data == "success") {
@@ -29,7 +29,7 @@
                         }
                     }
                 });
-            }
+            };
             return false;
         });
     });
